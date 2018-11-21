@@ -34,10 +34,14 @@
 \definecolor{cogimon-dark-red}{RGB}{180,5,5}
 
 %% Footline:
-\setbeamertemplate{footline}{\begin{tikzpicture}
-    \node [inner sep=0pt, anchor=east] (0,0) {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};
-    \node [inner sep=0pt, anchor=east, color=cogimon-dark-blue] at (-10ex,-1.25ex) {\scriptsize \insertframenumber{}};
-\end{tikzpicture}}
+\setbeamertemplate{footline}{%
+	\begin{tikzpicture}%
+	    \node (img) [inner sep=0pt] {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};%
+	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=3em] at (img.west) {\small W.P. \insertsection{}};%
+	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=10em] at (img.west) {\small T. \insertsubsection{}};%
+	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=-6em, yshift=-0.55em] at (img.east) {\scriptsize \insertframenumber{}};%
+	\end{tikzpicture}%
+}
 
 %% Headline:
 \addtobeamertemplate{headline}{
