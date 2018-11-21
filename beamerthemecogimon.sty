@@ -1,0 +1,60 @@
+%% This is a quick and dirty verstion of cogimon official template
+%% re-written for beamer. It needs fira sans mono and should be run
+%% with lualatex or xelatex. This comes with no guarantee so use it
+%% at your own risk.
+%%
+%% Author: Pouya Mohammadi
+
+\mode<presentation>
+
+\RequirePackage{tikz}
+\RequirePackage[no-math]{fontspec}
+\RequirePackage{MnSymbol}
+%% Fonts: we use fira from mozila. it is free and open source.
+%  I have not handled "font not found". Note this should be 
+%  used with xelatex or lualatex... 
+\setsansfont[ItalicFont={Fira Sans Light Italic},%
+                BoldFont={Fira Sans},%
+                BoldItalicFont={Fira Sans Italic}]%
+				{Fira Sans Light}%
+\setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}%
+%% appearantly some linuxes use this OT thing...
+% \setsansfont[ItalicFont={Fira Sans Light Italic OT},%
+%                 BoldFont={Fira Sans OT},%
+%                 BoldItalicFont={Fira Sans Italic OT}]%
+% 				{Fira Sans Light OT}%
+% \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
+
+%% To use normal math font:
+\usefonttheme[onlymath]{serif}
+%b80000ff
+%% Define some colors:
+\definecolor{cogimon-dark-blue}{RGB}{30,68,138}
+\definecolor{cogimon-gold}{RGB}{253,203,11}
+\definecolor{cogimon-dark-red}{RGB}{180,5,5}
+
+%% Footline:
+\setbeamertemplate{footline}{\begin{tikzpicture}
+    \node [inner sep=0pt, anchor=east] (0,0) {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};
+    \node [inner sep=0pt, anchor=east, color=cogimon-dark-blue] at (-10ex,-1.25ex) {\scriptsize \insertframenumber{}};
+\end{tikzpicture}}
+
+%% Headline:
+\addtobeamertemplate{headline}{
+	\includegraphics[width=1\paperwidth]{figures/headline.pdf}
+}
+
+%% Special text colors
+\setbeamercolor{frametitle}{fg=cogimon-dark-blue}
+\setbeamercolor{alerted text}{fg=cogimon-dark-red}
+
+%% Bullet points:
+%\setbeamerfont{itemize item}{size=\scriptsize}
+%\setbeamerfont{itemize subitem}{size=\tiny}
+\setbeamercolor{item}{fg=cogimon-dark-blue}
+\setbeamertemplate{itemize items}{$\filledsquare$}
+%\setbeamertemplate{itemize subitem}[square]
+
+%% NO navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\mode<all>
