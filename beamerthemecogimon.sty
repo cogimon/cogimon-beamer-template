@@ -49,6 +49,24 @@
 	\includegraphics[width=1\paperwidth]{figures/headline.pdf}
 }
 
+%% Title page background and stuff
+\addtobeamertemplate{title page}{%
+	\begin{tikzpicture}[remember picture,overlay]
+        \node (img1) [inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=1\paperwidth]{figures/headline.pdf}};%
+        \node (img2) [inner sep=0pt,anchor=south] at (current page.south) {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};%
+        \node (img3) [inner sep=1.5pt,anchor=south west] at (current page.south west) {%
+        	\includegraphics[height=2.2ex]{figures/tubs-logo.png} \hspace{2pt}% 
+        	\includegraphics[height=2.2ex]{figures/epfl-logo.png} \hspace{2pt}%
+        	\includegraphics[height=2.2ex]{figures/fsl-logo.jpg} \hspace{2pt}%
+        	\includegraphics[height=2.2ex]{figures/tuebingen-logo.png} \hspace{2pt}%
+        	\includegraphics[height=2.2ex]{figures/iit-logo.jpg} \hspace{2pt}%
+        	\includegraphics[height=2.2ex]{figures/edinburgh-logo.png} \hspace{2pt}%
+        	\includegraphics[height=2.2ex]{figures/icl-logo.png} \hspace{2pt}%
+        	\includegraphics[height=2.2ex]{figures/unibi-logo.png}%
+        };%
+    \end{tikzpicture}       
+}
+
 %% Special text colors
 \setbeamercolor{frametitle}{fg=cogimon-dark-blue}
 \setbeamercolor{alerted text}{fg=cogimon-dark-red}
