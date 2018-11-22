@@ -33,6 +33,7 @@
 \definecolor{cogimon-dark-blue}{RGB}{30,68,138}
 \definecolor{cogimon-gold}{RGB}{253,203,11}
 \definecolor{cogimon-dark-red}{RGB}{180,5,5}
+\definecolor{cogimon-dark-gray}{RGB}{100,100,100}
 
 %% Footline:
 \setbeamertemplate{footline}{%
@@ -52,6 +53,7 @@
 %% Title page background and stuff
 \addtobeamertemplate{title page}{%
 	\begin{tikzpicture}[remember picture,overlay]
+	% \node [inner sep=0pt, color=cogimon-dark-blue] at (current page.center) {\small W.P. \insertsection{}};%
         \node (img1) [inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=1\paperwidth]{figures/headline.pdf}};%
         \node (img2) [inner sep=0pt,anchor=south] at (current page.south) {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};%
         \node (img3) [inner sep=1.5pt,anchor=south west] at (current page.south west) {%
@@ -62,9 +64,19 @@
         	\includegraphics[height=2.2ex]{figures/iit-logo.jpg} \hspace{2pt}%
         	\includegraphics[height=2.2ex]{figures/edinburgh-logo.png} \hspace{2pt}%
         	\includegraphics[height=2.2ex]{figures/icl-logo.png} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/unibi-logo.png}%
+        	\includegraphics[height=2.2ex]{figures/unibi-logo.png}%        	
         };%
     \end{tikzpicture}       
+	\setbeamerfont{title}{series=\bfseries}
+	\setbeamerfont{subtitle}{series=\bfseries}
+	\setbeamerfont{author}{series=\bfseries}
+	\setbeamerfont{institute}{series=\bfseries}
+	\setbeamerfont{date}{series=\bfseries}
+	\setbeamercolor{title}{fg=cogimon-dark-blue}	
+	\setbeamercolor{subtitle}{fg=cogimon-dark-gray}	
+	\setbeamercolor{author}{fg=cogimon-dark-gray}
+	\setbeamercolor{institute}{fg=cogimon-dark-gray}
+	\setbeamercolor{date}{fg=cogimon-dark-gray}
 }
 
 %% Special text colors
