@@ -18,3 +18,6 @@ If you want to change the appearance of elements, you can refer to [beamer-cheat
 ### TODO
 1. The title page
 2. Fix the aspect ratio
+
+### Misc
+![test.png](https://raw.githubusercontent.com/cogimon/cogimon-beamer-template/master/test.png)
