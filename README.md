@@ -4,6 +4,8 @@ This is a quick and dirty version of cogimon official template re-written for `b
 It needs [fira sans](https://github.com/bBoxType/FiraSans) font from Mozilla and should be run with `lualatex` or `xelatex`. 
 This comes with no guarantee so use it at your own risk.
 
+Universities and institutes are copyright holders for their logos.
+
 ### Howto
 If you want to change the appearance of elements, you can refer to [beamer-cheatsheet](http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf). For instance, to set the `frame title` bold, you add the following to your preamble:
 ```TeX
