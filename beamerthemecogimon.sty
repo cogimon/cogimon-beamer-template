@@ -8,23 +8,31 @@
 \mode<presentation>
 
 \RequirePackage{tikz}
-\RequirePackage[no-math]{fontspec}
 
-%% Fonts: we use fira from mozila. it is free and open source.
-%  I have not handled "font not found". Note this should be 
-%  used with xelatex or lualatex... 
-\setsansfont[ItalicFont={Fira Sans Light Italic},%
-                BoldFont={Fira Sans},%
-                BoldItalicFont={Fira Sans Italic}]%
-				{Fira Sans Light}%
-\setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}%
-
-%% appearantly some linuxes use this OT thing...
-% \setsansfont[ItalicFont={Fira Sans Light Italic OT},%
-%                 BoldFont={Fira Sans OT},%
-%                 BoldItalicFont={Fira Sans Italic OT}]%
-% 				{Fira Sans Light OT}%
-% \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
+\ifdefined\directlua
+  \RequirePackage[no-math]{fontspec}
+  
+  %% Fonts: we use fira from mozila. it is free and open source.
+  %  I have not handled "font not found". Note this should be 
+  %  used with xelatex or lualatex... 
+  \setsansfont[ItalicFont={Fira Sans Light Italic},%
+                  BoldFont={Fira Sans},%
+                  BoldItalicFont={Fira Sans Italic}]%
+  				{Fira Sans Light}%
+  \setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}%
+  
+  %% appearantly some linuxes use this OT thing...
+  % \setsansfont[ItalicFont={Fira Sans Light Italic OT},%
+  %                 BoldFont={Fira Sans OT},%
+  %                 BoldItalicFont={Fira Sans Italic OT}]%
+  % 				{Fira Sans Light OT}%
+  % \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
+\else
+  \RequirePackage[T1]{fontenc}
+  
+  \RequirePackage[sfdefault,light,medium]{FiraSans}
+  \RequirePackage[medium]{FiraMono}
+\fi
 
 %% To use normal math font:
 \usefonttheme[onlymath]{serif}
@@ -88,7 +96,7 @@
 %\setbeamerfont{itemize item}{size=\scriptsize}
 %\setbeamerfont{itemize subitem}{size=\tiny}
 \setbeamercolor{item}{fg=cogimon-dark-blue}
-\setbeamertemplate{itemize items}{$\scriptscriptstyle \blacksquare$}
+\setbeamertemplate{itemize items}{\raisebox{1.5pt}{\scalebox{.7}{$\scriptscriptstyle \blacksquare$}}}
 %\setbeamertemplate{itemize subitem}[square]
 
 %% NO navigation symbols
