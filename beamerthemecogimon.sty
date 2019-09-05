@@ -8,23 +8,31 @@
 \mode<presentation>
 
 \RequirePackage{tikz}
-\RequirePackage[no-math]{fontspec}
 
-%% Fonts: we use fira from mozila. it is free and open source.
-%  I have not handled "font not found". Note this should be 
-%  used with xelatex or lualatex... 
-\setsansfont[ItalicFont={Fira Sans Light Italic},%
-                BoldFont={Fira Sans},%
-                BoldItalicFont={Fira Sans Italic}]%
-				{Fira Sans Light}%
-\setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}%
-
-%% appearantly some linuxes use this OT thing...
-% \setsansfont[ItalicFont={Fira Sans Light Italic OT},%
-%                 BoldFont={Fira Sans OT},%
-%                 BoldItalicFont={Fira Sans Italic OT}]%
-% 				{Fira Sans Light OT}%
-% \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
+\ifdefined\directlua
+  \RequirePackage[no-math]{fontspec}
+  
+  %% Fonts: we use fira from mozila. it is free and open source.
+  %  I have not handled "font not found". Note this should be 
+  %  used with xelatex or lualatex... 
+  \setsansfont[ItalicFont={Fira Sans Light Italic},%
+                  BoldFont={Fira Sans},%
+                  BoldItalicFont={Fira Sans Italic}]%
+  				{Fira Sans Light}%
+  \setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}%
+  
+  %% appearantly some linuxes use this OT thing...
+  % \setsansfont[ItalicFont={Fira Sans Light Italic OT},%
+  %                 BoldFont={Fira Sans OT},%
+  %                 BoldItalicFont={Fira Sans Italic OT}]%
+  % 				{Fira Sans Light OT}%
+  % \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
+\else
+  \RequirePackage[T1]{fontenc}
+  
+  \RequirePackage[sfdefault,light,medium]{FiraSans}
+  \RequirePackage[medium]{FiraMono}
+\fi
 
 %% To use normal math font:
 \usefonttheme[onlymath]{serif}
@@ -41,7 +49,7 @@
 	    \node (img) [inner sep=0pt] {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};%
 	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=3em] at (img.west) {\small W.P. \insertsection{}};%
 	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=10em] at (img.west) {\small T. \insertsubsection{}};%
-	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=-6em, yshift=-0.55em] at (img.east) {\scriptsize \insertframenumber{}};%
+	    \node [inner sep=0pt, color=cogimon-dark-blue, xshift=-.08\paperwidth, yshift=-0.55em] at (img.east) {\scriptsize \insertframenumber{}};%
 	\end{tikzpicture}%
 }
 
@@ -54,17 +62,18 @@
 \addtobeamertemplate{title page}{%
 	\begin{tikzpicture}[remember picture,overlay]
 	% \node [inner sep=0pt, color=cogimon-dark-blue] at (current page.center) {\small W.P. \insertsection{}};%
+        \def\imghght{.027\paperwidth}
         \node (img1) [inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=1\paperwidth]{figures/headline.pdf}};%
         \node (img2) [inner sep=0pt,anchor=south] at (current page.south) {\includegraphics[width=1\paperwidth]{figures/footline.pdf}};%
         \node (img3) [inner sep=1.5pt,anchor=south west] at (current page.south west) {%
-        	\includegraphics[height=2.2ex]{figures/tubs-logo.png} \hspace{2pt}% 
-        	\includegraphics[height=2.2ex]{figures/epfl-logo.png} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/fsl-logo.jpg} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/tuebingen-logo.png} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/iit-logo.jpg} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/edinburgh-logo.png} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/icl-logo.png} \hspace{2pt}%
-        	\includegraphics[height=2.2ex]{figures/unibi-logo.png}%        	
+        	\includegraphics[height=\imghght]{figures/tubs-logo.png} \hspace{2pt}% 
+        	\includegraphics[height=\imghght]{figures/epfl-logo.png} \hspace{2pt}%
+        	\includegraphics[height=\imghght]{figures/fsl-logo.jpg} \hspace{2pt}%
+        	\includegraphics[height=\imghght]{figures/tuebingen-logo.png} \hspace{2pt}%
+        	\includegraphics[height=\imghght]{figures/iit-logo.jpg} \hspace{2pt}%
+        	\includegraphics[height=\imghght]{figures/edinburgh-logo.png} \hspace{2pt}%
+        	\includegraphics[height=\imghght]{figures/icl-logo.png} \hspace{2pt}%
+        	\includegraphics[height=\imghght]{figures/unibi-logo.png}%        	
         };%
     \end{tikzpicture}       
 	\setbeamerfont{title}{series=\bfseries}
@@ -88,7 +97,7 @@
 %\setbeamerfont{itemize item}{size=\scriptsize}
 %\setbeamerfont{itemize subitem}{size=\tiny}
 \setbeamercolor{item}{fg=cogimon-dark-blue}
-\setbeamertemplate{itemize items}{$\scriptscriptstyle \blacksquare$}
+\setbeamertemplate{itemize items}{\raisebox{1.5pt}{\scalebox{.7}{$\scriptscriptstyle \blacksquare$}}}
 %\setbeamertemplate{itemize subitem}[square]
 
 %% NO navigation symbols
